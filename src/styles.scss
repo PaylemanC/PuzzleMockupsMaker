@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+$background: #FCFCFC;
+$grey: #444444;
+$oscuro: #1f1f1f;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  position: relative;
+  font-family: 'Quicksand', sans-serif;
+}
+
+p, input, button, textarea, label, select {
+  font-size: 1.6rem;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid $oscuro;
+}
