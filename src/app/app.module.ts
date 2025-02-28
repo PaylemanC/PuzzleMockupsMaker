@@ -8,6 +8,9 @@ import { MockupComponent } from './components/mockup/mockup.component';
 import { MockupsListComponent } from './components/mockups-list/mockups-list.component';
 import { MockupsCardComponent } from './components/mockups-card/mockups-card.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,9 @@ import { MockupsCardComponent } from './components/mockups-card/mockups-card.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

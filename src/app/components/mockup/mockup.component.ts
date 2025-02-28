@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Mockup } from 'src/app/models/mockup.model';
 import { MOCKUPS } from 'src/app/data/mockups-list.data';
 import { fabric } from 'fabric';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-mockup',
@@ -16,7 +17,7 @@ export class MockupComponent {
   clipPath: fabric.Rect | undefined = undefined;
   title: string = 'Título';
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private toastr: ToastrService) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -140,6 +141,12 @@ export class MockupComponent {
   async downloadMockup() {
     if (!this.canvas) return;
 
+    this.toastr.info('Espere un momento por favor.', 'Descarga en proceso.', {
+      tapToDismiss: false,
+      positionClass: 'toast-bottom-right',
+      newestOnTop: false
+    });
+
     try {
       const dataURL = this.canvas.toDataURL({
         format: 'png',
@@ -154,8 +161,18 @@ export class MockupComponent {
       link.click();
       link.remove();
 
+      this.toastr.success('Tu archivo se descargará en formato imagen/PNG.', 'Descarga completada.', {
+        tapToDismiss: true,
+        positionClass: 'toast-bottom-right',
+        newestOnTop: false
+      });
+
     } catch (error) {
-      console.error('Error downloading mockup', error);
+      this.toastr.error('Ha ocurrido un error al intentar descargar tu archivo. Pruebe nuevamente en unos minutos', 'Error inesperado', {
+        tapToDismiss: true,
+        positionClass: 'toast-bottom-right',
+        newestOnTop: false
+      });
     }
   }
 

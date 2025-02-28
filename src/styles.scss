@@ -1,3 +1,5 @@
+@import 'ngx-toastr/toastr';
+
 $background: #FCFCFC;
 $grey: #444444;
 $oscuro: #1f1f1f;
@@ -25,3 +27,12 @@ button {
   cursor: pointer;
   border: 1px solid $oscuro;
 }
+
+.toast-title {
+  font-size: 14px;
+}
+
+.toast-message {
+  font-size: 14px;
+}
+
