@@ -1,2 +1,36 @@
-<p>mockup works!</p>
-<p>{{mockup?.id}}</p>
+<a class="back-arrow" routerLink="/"></a>
+<div id="mockup">
+  <div id="mockup-{{mockup.id}}" *ngIf="mockup" class="mockup-config">
+    <input type="text" placeholder="Título" class="mockup__title" [(ngModel)]="title">
+    <p class="mockup__type">{{mockup.title}}</p>
+    <div class="mockup__orientation">
+      <div class="input-group">
+        <input type="radio" name="orientation" id="mockup-horizontal" value="horizontal" checked
+        [(ngModel)]="orientation" (change)="onOrientationChange()">
+        <label for="mockup-horizontal">Horizontal</label>
+      </div>
+      <div class="input-group">
+        <input type="radio" name="orientation" id="mockup-vertical" value="vertical"
+        [(ngModel)]="orientation" (change)="onOrientationChange()">
+        <label for="mockup-vertical">Vertical</label>
+      </div>
+    </div>
+  </div>
+  <div class="mockup-container">
+    <canvas id="canvas-mockup"></canvas>
+    <div class="mockup-tools">
+      <p>Ajustar imagen</p>
+      <div class="mockup-tools__btns">
+        <button class="mockup-tools__btn center-btn" (click)="centerImage()"><span></span>Centrar</button>
+        <button class="mockup-tools__btn rotate-btn" (click)="rotateImage()"><span></span>Girar</button>
+      </div>
+    </div>
+  </div>
+  <div class="btn-container primary-buttons">
+    <div class="mockup__upload-container">
+      <label for="upload-image" class="mockup__upload-label btn primary-btn"><span></span>Subir imagen</label>
+      <input type="file" id="upload-image" (change)="onImageUpload($event)" accept="image/*" class="mockup__upload-btn"/>
+    </div>
+    <button (click)="downloadMockup()" class="download-btn btn primary-btn"><span></span>Descargar mockup</button>
+  </div>
+</div>

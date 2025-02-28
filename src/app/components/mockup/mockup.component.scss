@@ -1,0 +1,163 @@
+
+
+@import 'src/styles.scss';
+
+@mixin span-icons($url, $width, $height) {
+  display: inline-block;
+  background: url($url) no-repeat center;
+  width: $width;
+  height: $height;
+}
+
+.back-arrow {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  background: url('../../../assets/icons/back-arrow.svg') no-repeat center/contain;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+
+#mockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 16px 20px 16px;
+  background-color: $background;
+}
+
+.mockup-config {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mockup__title {
+  border: none;
+  border-bottom: 2px solid $oscuro;
+  font-size: 2.4rem;
+  padding: 8px;
+  font-weight: bold;
+  background: transparent;
+  outline: none;
+  text-align: center;
+  width: 680px;
+}
+
+.mockup__type {
+  font-size: 1.8rem;
+  color: $grey;
+  margin: 8px;
+  font-style: italic;
+}
+
+.mockup__orientation {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.mockup__orientation label {
+  font-size: 1.8rem;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.mockup-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 70px;
+  flex-wrap: wrap;
+}
+
+#canvas-mockup {
+  border: 2px dashed $oscuro;
+  border-radius: 8px;
+}
+
+.mockup-tools {
+  padding: 16px;
+  border: 1px solid $oscuro;
+  border-radius: 8px;
+  height: fit-content;
+  max-width: 246px;
+}
+
+.mockup-tools > p {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.mockup-tools__btns {
+  display: flex;
+  gap: 8px;
+}
+
+.mockup-tools__btn {
+  padding: 4px 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &.center-btn span {
+    @include span-icons('../../../assets/icons/align-center.svg', 18px, 18px);
+    background-size: contain;
+  }
+
+  &.rotate-btn span {
+    @include span-icons('../../../assets/icons/rotate.svg', 18px, 18px);
+    background-size: contain;
+  }
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+
+  &.primary-buttons {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
+.primary-btn {
+  padding: 12px 20px;
+}
+
+.mockup__upload-container{
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  border: 2px solid $oscuro;
+}
+
+.mockup__upload-label {
+  font-family: Arial;
+  cursor: pointer;
+}
+
+.mockup__upload-btn {
+  display: none;
+}
+
+.download-btn span {
+  @include span-icons('../../../assets/icons/download.svg', 24px, 24px);
+}
+
+.mockup__upload-label span {
+  @include span-icons('../../../assets/icons/cloud-upload.svg', 24px, 24px);
+}
